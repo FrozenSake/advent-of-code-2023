@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"strconv"
 	"strings"
@@ -63,5 +62,5 @@ func main() {
 
 	output := day1(input, sugar)
 
-	fmt.Printf("The sum of calibrations for day 1 is: %v\n", output)
+	sugar.Infof("The sum of calibrations for day 1 is: %v\n", output)
 }

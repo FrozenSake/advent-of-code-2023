@@ -23,5 +23,6 @@ func main() {
 	defer logger.Sync()
 	sugar := logger.Sugar()
 
-	fmt.Println(loadInput(sugar))
+	input := loadInput(sugar)
+	fmt.Println(input)
 }
