@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"os"
+	"strings"
 
 	"go.uber.org/zap"
 )
@@ -18,10 +18,28 @@ func loadInput(sugar *zap.SugaredLogger) string {
 	return string(content)
 }
 
+func part1(input string, sugar *zap.SugaredLogger) int {
+	lines := strings.Split(input, "\n")
+	sum := 0
+
+	return sum
+}
+
+func part2(input string, sugar *zap.SugaredLogger) int {
+	lines := strings.Split(input, "\n")
+	sum := 0
+
+	return sum
+}
+
 func main() {
 	logger, _ := zap.NewProduction()
 	defer logger.Sync()
 	sugar := logger.Sugar()
 
-	fmt.Println(loadInput(sugar))
+	input := loadInput(sugar)
+	sugar.Infof("%v", input)
+
+	output := day(input, sugar)
+	sugar.Infof("%v", output)
 }

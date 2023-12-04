@@ -18,7 +18,14 @@ func loadInput(sugar *zap.SugaredLogger) string {
 	return string(content)
 }
 
-func day(input string, sugar *zap.SugaredLogger) int {
+func part1(input string, sugar *zap.SugaredLogger) int {
+	lines := strings.Split(input, "\n")
+	sum := 0
+
+	return sum
+}
+
+func part2(input string, sugar *zap.SugaredLogger) int {
 	lines := strings.Split(input, "\n")
 	sum := 0
 
