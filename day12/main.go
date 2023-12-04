@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 
 	"go.uber.org/zap"
 )
 
 func loadInput(sugar *zap.SugaredLogger) string {
-	content, err := ioutil.ReadFile("input")
+	content, err := os.ReadFile("input")
 	if err != nil {
 		sugar.Errorw("failed to read file",
 			"filename", "input",
