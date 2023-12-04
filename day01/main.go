@@ -19,7 +19,7 @@ func loadInput(sugar *zap.SugaredLogger) string {
 	return string(content)
 }
 
-func day1(input string, sugar *zap.SugaredLogger) int {
+func part1(input string, sugar *zap.SugaredLogger) int {
 	lines := strings.Split(input, "\n")
 
 	sumOfCalibration := 0
@@ -49,6 +49,14 @@ func day1(input string, sugar *zap.SugaredLogger) int {
 			loopNum++
 		}
 	}
+
+	return sumOfCalibration
+}
+
+func part2(input string, sugar *zap.SugaredLogger) int {
+	lines := strings.Split(input, "\n")
+
+	sumOfCalibration := 0
 
 	return sumOfCalibration
 }
