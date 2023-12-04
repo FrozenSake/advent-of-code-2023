@@ -23,3 +23,6 @@ go.work
 # Advent of Code files
 input.txt
 input
+
+# Personal scratchpad
+thoughts.md
