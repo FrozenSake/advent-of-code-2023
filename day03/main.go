@@ -142,7 +142,7 @@ func day3(input string, sugar *zap.SugaredLogger) (int, int) {
 						}
 						ratio := (numOne * numTwo * numThree)
 						gearSum = gearSum + ratio
-						sugar.Infof("one: %v \ntwo: %v \n three: %v \nratio: %v \ngearsum: %v \n", numOne, numTwo, numThree, ratio, gearSum)
+						sugar.Debugf("one: %v \ntwo: %v \n three: %v \nratio: %v \ngearsum: %v \n", numOne, numTwo, numThree, ratio, gearSum)
 					}
 				}
 				sugar.Debugf("------")
