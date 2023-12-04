@@ -98,7 +98,6 @@ func day3(input string, sugar *zap.SugaredLogger) int {
 
 	symbols := "#%&*+-/=@$"
 
-	var symbolLocations [][2]int
 	var lastLine string
 
 	// This logic falls apart if there's ever a number adjacent to two symbols because it won't be excluded. Would need list of points and to validate the point wasn't already recorded to fix.
@@ -108,7 +107,6 @@ func day3(input string, sugar *zap.SugaredLogger) int {
 		for j, character := range lines[i] {
 			char := string(character)
 			if strings.Contains(symbols, char) {
-				symbolLocations = append(symbolLocations, [2]int{i, j})
 				sum += parseLine(lastLine, j, sugar)
 				sugar.Debugf("Sum: %v\n", sum)
 				sum += parseLine(lines[i], j, sugar)
