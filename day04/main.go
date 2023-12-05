@@ -59,14 +59,58 @@ func part1(input string, sugar *zap.SugaredLogger) int {
 	return sum
 }
 
-/*
 func part2(input string, sugar *zap.SugaredLogger) int {
 	lines := strings.Split(input, "\n")
-	sum := 0
+	var sum int
+
+	// Will use this as a list of how many copies of the upcoming cards are owed, e.g. [1, 2, 3] would be 1 of n+1, 2 of n+2, 3 of n+3, pop off first, add, and go.
+	cardCopies := make([]int, len(lines))
+
+	for index, line := range lines {
+		if len(line) <= 1 {
+			break
+		}
+
+		// Add the "base"" card to our copies, then set that number as our win multiplier
+		cardCopies[index] += 1
+		multiplier := cardCopies[index]
+
+		// Drop Game #
+		line = strings.Split(line, ":")[1]
+		points := 0
+
+		numbers := strings.Split(line, "|")
+		winners := strings.Fields(numbers[0])
+		myNumbers := strings.Fields(numbers[1])
+
+		for _, winner := range winners {
+			if len(winner) == 1 {
+				winner = fmt.Sprintf(" %v", winner)
+			}
+			for _, number := range myNumbers {
+				if len(number) == 1 {
+					number = fmt.Sprintf(" %v", number)
+				}
+				if strings.Contains(number, winner) {
+					points++
+					sugar.Debugf("Card %v won %v times.", index, points)
+				}
+			}
+		}
+
+		sugar.Debugf("Cardcopies length: %v", len(cardCopies))
+		for i := 1; i <= points; i++ {
+			cardCopies[index+i] += 1 * multiplier
+		}
+	}
+
+	sugar.Infof("%v", cardCopies)
+	for _, value := range cardCopies {
+		sum += value
+	}
 
 	return sum
 }
-*/
 
 func main() {
 	logger, _ := zap.NewProduction()
@@ -77,5 +121,8 @@ func main() {
 	sugar.Infof("%v", input)
 
 	output := part1(input, sugar)
-	sugar.Infof("%v", output)
+	sugar.Infof("PART ONE: %v", output)
+
+	output64 := part2(input, sugar)
+	sugar.Infof("PART 2: %v", output64)
 }
